@@ -13,10 +13,8 @@ class Employer(models.Model):
 
 class Author(models.Model):
 	user		= models.OneToOneField(User)
-	firstname	= models.CharField(max_length=50)
-	surname		= models.CharField(max_length=50)
-	address		= models.TextField()
-	birthday	= models.DateField()
+	address		= models.TextField(blank=True)
+	birthday	= models.DateField(blank=True)
 	email2		= models.EmailField(blank=True)
 	phone		= models.CharField(max_length=20, blank=True)
 	

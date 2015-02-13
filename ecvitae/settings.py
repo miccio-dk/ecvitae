@@ -59,11 +59,11 @@ WSGI_APPLICATION = 'ecvitae.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'ecvitae',
+        'NAME': 'ecvitae_db',
     }
 }
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+#import dj_database_url
+#DATABASES['default'] = dj_database_url.config()
 
 
 # Internationalization
