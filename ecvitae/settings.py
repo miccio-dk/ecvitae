@@ -7,9 +7,9 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ALLOWED_HOSTS = ['ecvitae.herokuapp.com']
@@ -18,12 +18,11 @@ ALLOWED_HOSTS = ['ecvitae.herokuapp.com']
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9*7mdl)+739_ps(32-l0z-2onxvj58351dt14nu7(7c&z4cm%%'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 
 
@@ -56,14 +55,11 @@ WSGI_APPLICATION = 'ecvitae.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'ecvitae_db',
-    }
+    'default': dj_database_url.config()
 }
-#import dj_database_url
-#DATABASES['default'] = dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config()
 
 
 # Internationalization
