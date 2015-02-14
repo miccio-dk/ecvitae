@@ -5,6 +5,7 @@ dj-static==0.0.6
 django-pagination==1.0.7
 django-tastypie==0.12.1
 django-toolbelt==0.0.1
+django-sitetree==1.2.1
 python-dateutil==2.4.0
 python-mimeparse==0.1.4
 six==1.9.0
