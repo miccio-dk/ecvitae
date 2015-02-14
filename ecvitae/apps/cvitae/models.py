@@ -19,7 +19,7 @@ class Author(models.Model):
 	phone		= models.CharField(max_length=20, blank=True)
 	
 	def __unicode__(self):
-		return self.name
+		return self.user.first_name
 
 	
 class Job(models.Model):
