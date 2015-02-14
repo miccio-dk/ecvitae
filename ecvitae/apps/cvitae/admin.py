@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from ecvitae.apps.cvitae.models import Author
+from ecvitae.apps.cvitae.models import *
 
 
 class AuthorInline(admin.StackedInline):
@@ -9,10 +9,31 @@ class AuthorInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'authors'
 
-# Define a new User admin
 class UserAdmin(UserAdmin):
     inlines = (AuthorInline, )
 
-# Re-register UserAdmin
+
+
+class WorkInLine(admin.TabularInline):
+    model = Work
+    extra = 3
+
+class StudyInLine(admin.TabularInline):
+    model = Study
+    extra = 3
+
+class CVAdmin(admin.ModelAdmin):
+    inlines = (WorkInLine, StudyInLine, )
+
+
+
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+
+admin.site.register(CV, CVAdmin)
+admin.site.register(Employer)
+admin.site.register(Institution)
+admin.site.register(Job)
+admin.site.register(Education)
+
+
