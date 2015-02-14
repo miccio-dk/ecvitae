@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response
-from django.shortcuts import RequestContext
+from django.shortcuts import render
+
 def home(request):
-    return render_to_response("base.html", RequestContext(request, {}))
+	return render(request, "cvitae/index.html", {})
+
+def home_files(request, filename):
+	return render(request, filename, {}, content_type="text/plain")
